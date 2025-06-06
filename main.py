@@ -9,6 +9,7 @@ openai.api_base = "https://openrouter.ai/api/v1"
 
 @app.route("/", methods=["GET"])
 def home():
+    print("¡Superbot está vivo!")  # Esto lo ves en los logs de Render
     return "¡Hola desde tu superbot en Render! 😎"
 
 @app.route("/bot", methods=["POST"])
@@ -26,6 +27,3 @@ def bot():
     return jsonify({
         "response": response["choices"][0]["message"]["content"]
     })
-
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=10000)
